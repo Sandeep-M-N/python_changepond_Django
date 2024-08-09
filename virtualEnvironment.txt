@@ -1,0 +1,20 @@
+steps:
+1. install python 3.9.10
+2.add path
+
+3.pip install virtualenvwrapper-win
+-> mkvirtualenv envname
+4.pip freeze -> to check what are the packages installed
+5. to install django :
+    pip install django
+
+6. to create a project in django:
+    django-admin startproject project-name
+
+7. to create the app in django
+    cd project-name
+
+8. to run the server
+    ->python manage.py runserver
+
+    django-admin startapp project-name
