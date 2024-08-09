@@ -18,3 +18,34 @@ steps:
     ->python manage.py runserver
 
     django-admin startapp project-name
+
+
+
+===================================================================
+Django makes use of a directory structure to arrange different parts of web application
+->schedule
+    schedule-> __init.py
+               settings.py
+               urls.py
+               wsgi.py
+               asgi.py
+    manage.py
+      mangae.py:
+                ->it is a command-line utitlity for our project
+                ->the file contains the code for running the server, make migrations... and several commands
+                ->it lets you to interact with your project
+
+    settings.py:
+            -> it is typically used to store configuration information in django
+            -> default database is set here
+
+    __init.py:
+        ->empty file, function of this file tells python interpretor that is directory has package
+
+    urls.py:
+        -> it is used to provide you the address of the particular page
+
+    wsgi.py(Web server gateway interface):
+        ->it is the way how servers interact with the applications
+
+    asgi.py(ASGI works similar to wsgi)
