@@ -17,7 +17,17 @@ steps:
 8. to run the server
     ->python manage.py runserver
 
-    django-admin startapp project-name
+9.to create a app inside a subfolder
+    ->django-admin startapp project-name
+
+10. to deactivate the virtual environment
+    ->deactivate
+
+11. to see the list of virtual environment
+    ->workon
+
+12. to select the specific environment from the list of virtual environment
+    ->workon environment-name
 
 
 
