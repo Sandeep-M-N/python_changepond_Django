@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block page_title %}Month List{% endblock  %}
+{% block content %}
+    <ul>
+        {% for mon in month  %}
+        {% if mon != 'march' %}
+            <li><a href='/months/mon'>{{mon}}</li>
+             <li><a href='{% url "month-detail" mon %}'>{{mon}}</li>
+        {% else %}
+            <li><a href='{% url "month-detail" mon %}'>Nothoing to study</li>
+        {% endif %}
+        
+        {% endfor %}
+    </ul> {% endcomment %} 
+   
+{% endblock %}
