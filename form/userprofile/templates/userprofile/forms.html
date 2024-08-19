@@ -8,8 +8,12 @@
 <body>
     <form  method='POST'>
         {% csrf_token %}
-        <label for='usernamename'>Enter your Name: </label>
-        <input id="username" name="username" type="text">
+        {% comment %} {% if haserror %}
+        <p>your form cannot be empty</p>
+        {% endif %}
+        <label for='username'>Enter your Name: </label>
+        <input id="username" name="username" type="text"> {% endcomment %}
+        {{form}}
 
         <button type="submit">Submit</button>
     </form>
