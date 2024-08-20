@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from.forms import feedbackform
+from .models import Review
 
 # Create your views here.
 def index(request):
@@ -12,8 +13,16 @@ def index(request):
         #     })
         form=feedbackform(request.POST)
         if form.is_valid():
+            # review=Review(
+            #     user_name=form.cleaned_data['user_name'],
+            #     text=form.cleaned_data['message'],
+            #     rating=form.cleaned_data['rating']
+            # )
+            form.save()
+            print(form.cleaned_data)
             return HttpResponseRedirect('thankyou')
-    form=feedbackform()
+    else:
+        form=feedbackform()
     return render(request,'userprofile/forms.html',{
         'form':form
     })

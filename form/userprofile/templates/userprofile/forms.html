@@ -1,21 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form  method='POST'>
+{% extends "base.html" %}
+{% load static %}
+{% block page_title %}forms{% endblock page_title %}
+{% block css_file %}<link rel='stylesheet' href="{% static 'userprofile/form.css' %}">{% endblock css_file %}
+{% block content %}
+    <form  method='POST' novalidate>
         {% csrf_token %}
         {% comment %} {% if haserror %}
         <p>your form cannot be empty</p>
         {% endif %}
         <label for='username'>Enter your Name: </label>
         <input id="username" name="username" type="text"> {% endcomment %}
-        {{form}}
+        {% for fields in form %}
+        {% if fields.errors %}errors{% endif %}
+        {{ fields.label_tag }}
+        {{ fields}}
+        {{ fields.errors }}
+        {% endfor %}
+    
+        {% comment %} {{form}} {% endcomment %}
 
         <button type="submit">Submit</button>
     </form>
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,40 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    background-color: #4a90e2;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+
+h2:nth-of-type(odd) {
+    background-color: #50e3c2;
+}
+
+h2:nth-of-type(even) {
+    background-color: #f5a623;
+}
+
+.content-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content-container h2 {
+    margin-bottom: 15px;
+}

@@ -1,7 +1,12 @@
 {% extends "base.html" %} 
+{% load static %}
 {% block page_title %}Home Page{% endblock %}
+{% block css_file %} <link rel='stylesheet' href="{% static 'userprofile/index.css' %}">{% endblock  %}
 {% block content %}
-<h1>Welcome to my portfolio</h1>
+<header>
+  <h1 class="page-title">Welcome to my portfolio</h1>
+</header>
+
 <h2>Introduction</h2>
 <p>Hello! I'm Sandeep Rao, a passionate software developer with a knack for turning complex problems into elegant, efficient solutions. With 1 years of experience in front-end and backend, I’ve honed my skills in a variety of programming languages and frameworks, including java,python,react.js,django,mysql,postgresql.
 
@@ -11,10 +16,11 @@
 <div class="container text-center">
     <div class="row">
       <div class="col">
-        <h3><a href="#" >Latest post</a></h3>
+        <a href="" class="btn">Latest Post</a>
       </div>
       <div class="col">
-        <h3><a href="{% url 'allpost-detail' %}">All Post</a></h3>
+        {% comment %} <h3><a href="{% url 'allpost-detail' %}">All Post</a></h3> {% endcomment %}
+        <a href="{% url 'allpost-detail' %}" class="btn">All Post</a>
       </div>
       
     </div>
@@ -28,7 +34,7 @@
     <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{listing}}</h5>
-      <a href="{% url "post-description" listing %}" class="btn btn-primary">Read More</a>
+      <a href="{% url "post-description" listing %}" class="btn">Read More</a>
     </div>
   </div>
 </div>

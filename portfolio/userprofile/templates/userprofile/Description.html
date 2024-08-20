@@ -1,5 +1,7 @@
 {% extends "base.html" %}
+{% load static %}
 {% block page_title %}description{% endblock  %}
+{% block css_file  %}<link rel='stylesheet' href="{% static 'userprofile/Description.css' %}">{% endblock  %}
 
 {% block content %}
 <h2>{{read.title}}</h2>
