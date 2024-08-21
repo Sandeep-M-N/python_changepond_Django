@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_title %}profile{% endblock  %}
+{% block css_file %}{% endblock %}
+{% block content %}
+    
+        <form action="/fullprofile/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form}}
+
+            <button type="submit">submit</button>
+
+
+
+    </form>
+
+
+
+
+
+
+
+{% endblock %}

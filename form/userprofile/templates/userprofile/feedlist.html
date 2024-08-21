@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_title %}formslist{% endblock page_title %}
+
+{% block content %}
+
+
+<ul>
+    {% for rev in reviews %}
+        <li>{{rev.user_name}}</li>
+    {% endfor %}
+
+</ul>
+
+
+
+{% endblock %}
