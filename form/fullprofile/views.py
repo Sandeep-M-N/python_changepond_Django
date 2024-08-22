@@ -4,6 +4,7 @@ from django.views import View
 from django.http import HttpResponseRedirect
 from .models import Profileupload
 from django.views.generic.edit import CreateView
+from django.views.generic import ListView
 # Create your views here.
 # def store_file(file):
 #     with open('temp/image.jpg','+wb') as dest:
@@ -34,5 +35,13 @@ class CreateProfileView(CreateView):
     success_url='/fullprofile'
     fields="__all__"
     labels="choose the file to upload"
+
+
+class ProfileView(ListView):
+      model = Profileupload
+      template_name = "fullprofile/renderingimg.html"
+      context_object_name='renderingimg'
+
+
 
 

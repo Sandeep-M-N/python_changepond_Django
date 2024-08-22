@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_title %}img rendering{% endblock  %}
+{% block css_file %}<link rel='stylesheet' href="{% static 'fullprofile/renderingimg.css' %}">{% endblock %}
+{% block content %}
+
+<ul>
+{% for img in renderingimg %}
+<li><img src="{{img.userimage.url}}" alt="{renderingimg}"></li>
+
+{% endfor %}
+
+</ul>
+
+
+
+{% endblock  %}

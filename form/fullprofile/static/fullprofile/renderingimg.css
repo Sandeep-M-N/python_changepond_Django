@@ -1,0 +1,31 @@
+body {
+    background-color: #f8f9fa; /* Light grey background */
+    color: #343a40; /* Dark grey text */
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  ul {
+    display: flex; /* Use flexbox to arrange the list items horizontally */
+    justify-content: center; /* Center the images horizontally */
+    align-items: center; /* Align the images vertically */
+    list-style-type: none; /* Remove the default bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+  }
+  
+  li {
+    margin: 10px; /* Add space between the images */
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Optional: add rounded corners to images */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow to the images */
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  img:hover {
+    transform: scale(1.05); /* Optional: slightly enlarge the image on hover */
+  }
+  

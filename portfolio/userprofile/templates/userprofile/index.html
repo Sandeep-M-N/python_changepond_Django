@@ -1,5 +1,6 @@
 {% extends "base.html" %} 
-{% load static %}
+
+{% comment %} {% load static %}
 {% block page_title %}Home Page{% endblock %}
 {% block css_file %} <link rel='stylesheet' href="{% static 'userprofile/index.css' %}">{% endblock  %}
 {% block content %}
@@ -20,7 +21,7 @@
       </div>
       <div class="col">
         {% comment %} <h3><a href="{% url 'allpost-detail' %}">All Post</a></h3> {% endcomment %}
-        <a href="{% url 'allpost-detail' %}" class="btn">All Post</a>
+        {% comment %} <a href="{% url 'allpost-detail' %}" class="btn">All Post</a>
       </div>
       
     </div>
@@ -55,4 +56,54 @@
     </p>
 
 
+{% endblock %}  {% endcomment %}
+{% comment %} {% extends "base.html" %} {% endcomment %}
+{% load static %}
+{% block page_title %}Home Page{% endblock %}
+{% block css_file %} 
+<link rel="stylesheet" href="{% static 'userprofile/index.css' %}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
 {% endblock %}
+{% block content %}
+<header class="bg-dark text-white text-center py-5 mb-4">
+  <div class="container">
+    <h1 class="fw-light">Welcome to My Portfolio</h1>
+  </div>
+</header>
+
+<div class="container">
+  <section class="mb-5">
+    <h2 class="text-center mb-4">Introduction</h2>
+    <p class="lead text-center">Hello! I'm <strong>Sandeep Rao</strong>, a passionate software developer with a knack for turning complex problems into elegant, efficient solutions. With 1 year of experience in front-end and backend development, I’ve honed my skills in various programming languages and frameworks, including Java, Python, React.js, Django, MySQL, and PostgreSQL.</p>
+    <p class="text-center">My journey in software development began with a curiosity for how things work, and this curiosity has driven me to continuously learn and evolve in this ever-changing field. Whether it's developing a robust backend system, crafting a seamless user interface, or optimizing code for performance, I strive to build software that not only meets the requirements but also exceeds expectations.</p>
+  </section>
+
+  <div class="text-center mb-5">
+    <a href="#" class="btn btn-primary btn-lg mx-2">Latest Post</a>
+    <a href="{% url 'allpost-detail' %}" class="btn btn-outline-secondary btn-lg mx-2">All Posts</a>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {% for listing in post %}
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ listing }}</h5>
+          <a href="{% url 'post-description' listing %}" class="btn btn-outline-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <section class="mt-5">
+    <h3 class="text-center mb-4">About Us</h3>
+    <p class="text-center">Welcome to SR Technologies, where innovation meets expertise. We are a dedicated team of software developers, designers, and technology enthusiasts with a shared passion for crafting cutting-edge solutions that drive business success and deliver exceptional user experiences.</p>
+    <p class="text-center">Our journey began with the goal of transforming ideas into powerful software applications. Over the years, we've grown into a diverse team of professionals, each bringing unique skills and perspectives to the table.</p>
+    <p class="text-center">At SR Technologies, we believe in the power of collaboration and continuous learning. We work closely with our clients to understand their vision, challenges, and goals, ensuring that every solution we deliver is tailored to their specific needs.</p>
+  </section>
+</div>
+
+{% endblock %}
+
