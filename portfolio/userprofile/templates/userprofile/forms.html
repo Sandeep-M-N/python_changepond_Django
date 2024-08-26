@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_title %}All post{% endblock page_title %}
+{% block css_file %}{% endblock css_file %}
+{% block content %}
+
+<form method="post" action="{% url 'submit_feedback' %}">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Submit</button>
+</form>
+
+
+
+{% endblock %}

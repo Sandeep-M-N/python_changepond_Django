@@ -10,10 +10,11 @@
   <div class="grid text-center">
     <div class="g-col-4"></div>
     <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+      <img src="{{listing.image.url}}" class="card-img-top" alt="...">
+      <img src="C:\Users\sandeep.mn\Documents\sandeep\Python\python_virtual_environment\portfolio\uploads\images\about_page1_-_Copy.jpeg">
       <div class="card-body">
         <h5 class="card-title">{{listing}}</h5>
-        <a href="{% url "post-description" listing %}" class="btn">Read More</a>
+        <a href="{% url "post-description" listing.slug %}" class="btn">Read More</a>
       </div>
     </div>
   </div>

@@ -87,10 +87,11 @@
     {% for listing in post %}
     <div class="col">
       <div class="card h-100 shadow-sm">
-        <img src="..." class="card-img-top" alt="...">
+        <img src="{{listing.image.url}}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ listing }}</h5>
-          <a href="{% url 'post-description' listing %}" class="btn btn-outline-primary">Read More</a>
+          <h2>{{listing.image.url}}</h2>
+          <a href="{% url 'post-description' listing.slug %}" class="btn btn-outline-primary">Read More</a>
         </div>
       </div>
     </div>
@@ -104,6 +105,14 @@
     <p class="text-center">At SR Technologies, we believe in the power of collaboration and continuous learning. We work closely with our clients to understand their vision, challenges, and goals, ensuring that every solution we deliver is tailored to their specific needs.</p>
   </section>
 </div>
+<form action="index" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{form}}
 
+  <button type="submit">submit</button>
+
+
+
+</form>
 {% endblock %}
 
