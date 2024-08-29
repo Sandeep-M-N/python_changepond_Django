@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_title %}All post{% endblock page_title %}
-{% block css_file %}{% endblock css_file %}
+{% block css_file %}<link rel='stylesheet' href="{% static 'userprofile/thankyou.css' %}">{% endblock css_file %}
 {% block content %}
-
-<h1>Your feedback has been submitted successfully!</h1> 
+{% include "includes/header.html" %}
+<div class="container">
+    <h1>Your feedback has been submitted successfully!</h1>
+</div>
 
 
 {% endblock %}

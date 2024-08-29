@@ -1,42 +1,82 @@
-/* Card styles */
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+/* Navbar Styles */
+.navbar-brand {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.nav-link.active {
+    font-weight: bold;
+    color: #0056b3;
+}
+
+.nav-link:hover {
+    color: #007bff;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Grid and Card Styles */
+.grid {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
 .card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 10px;
     overflow: hidden;
-    transition: transform 0.3s ease;
 }
 
 .card:hover {
-    transform: scale(1.05);
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .card-img-top {
-    width: 100%;
-    height: auto;
-}
-
-.card-body {
-    padding: 1rem;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 3px solid #007bff;
 }
 
 .card-title {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 15px;
 }
 
 .btn {
     background-color: #007bff;
     color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    font-size: 1rem;
-    display: inline-block;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .btn:hover {
     background-color: #0056b3;
+    color: #fff;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 992px) {
+    .grid {
+        margin: 0 auto;
+        padding: 15px;
+    }
+
+    .card {
+        width: 20rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        width: 100%;
+    }
 }

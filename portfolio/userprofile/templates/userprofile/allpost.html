@@ -3,15 +3,15 @@
 {% block page_title %}All post{% endblock page_title %}
 {% block css_file %}<link rel='stylesheet' href="{% static 'userprofile/allpost.css' %}">{% endblock css_file %}
 {% block content %}
-
+{% include "includes/header.html" %}
 <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+ 
   {% for listing in post %}
   
   <div class="grid text-center">
     <div class="g-col-4"></div>
     <div class="card" style="width: 18rem;">
       <img src="{{listing.image.url}}" class="card-img-top" alt="...">
-      <img src="C:\Users\sandeep.mn\Documents\sandeep\Python\python_virtual_environment\portfolio\uploads\images\about_page1_-_Copy.jpeg">
       <div class="card-body">
         <h5 class="card-title">{{listing}}</h5>
         <a href="{% url "post-description" listing.slug %}" class="btn">Read More</a>
@@ -20,4 +20,5 @@
   </div>
       {% endfor %}
     </div>
+    
 {% endblock  %}

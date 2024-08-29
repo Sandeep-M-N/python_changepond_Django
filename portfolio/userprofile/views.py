@@ -9,8 +9,17 @@ from django.views.generic.edit import CreateView
 def index(request):
     
     post=Portfolio.objects.all().order_by("-id")[0:3]
+    # Handle the feedback form
+    if request.method == 'POST':
+        form=Feedbackform(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/thankyou')
+    else:
+        form=Feedbackform()
     return render(request,'userprofile/index.html',{
         'post':post,
+        'form':form
     })
 def allpost(request):
     post=Portfolio.objects.all()
@@ -32,8 +41,8 @@ class ProjectsubmitCreateView(CreateView):
    success_url="adminupload"
 
 
-class FeedbacksubmitView(CreateView):
-    model=feedback
-    form_class=Feedbackform
-    template_name='userprofile/index.html'
-    success_url="/thankyou"
+# class FeedbacksubmitView(CreateView):
+#     model=feedback
+#     form_class=Feedbackform
+#     template_name='userprofile/index.html'
+#     success_url="/thankyou"

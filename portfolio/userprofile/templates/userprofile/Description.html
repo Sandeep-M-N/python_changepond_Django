@@ -4,13 +4,22 @@
 {% block css_file  %}<link rel='stylesheet' href="{% static 'userprofile/Description.css' %}">{% endblock  %}
 
 {% block content %}
-<h2>{{read.title}}</h2>
-<img src="{{read.image.url}}">
-<h1>{{read.image.url}}</h1>
-<h2>{{read.description}}</h2>
-<h2>{{read.date}}</h2>
-<h2>{{read.time}}</h2>
-<h2>{{read.posted_by}}</h2>
+{% include "includes/header.html" %}
+<div class="container">
+    <h2>{{read.title}}</h2>
+    <img src="{{read.image.url}}" alt="{{read.title}}">
+    <div class="description-content">
+        <h2>{{read.description}}</h2>
+    </div>
+    <div class="date-time">
+        <h2>Date: {{read.date}}</h2>
+        <h2>Time: {{read.time}}</h2>
+    </div>
+    <div class="posted-by">
+        <h2>Posted by: {{read.posted_by}}</h2>
+    </div>
+</div>
+
 
 
 

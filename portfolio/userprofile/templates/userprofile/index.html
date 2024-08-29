@@ -1,96 +1,35 @@
-{% extends "base.html" %} 
-
-{% comment %} {% load static %}
-{% block page_title %}Home Page{% endblock %}
-{% block css_file %} <link rel='stylesheet' href="{% static 'userprofile/index.css' %}">{% endblock  %}
-{% block content %}
-<header>
-  <h1 class="page-title">Welcome to my portfolio</h1>
-</header>
-
-<h2>Introduction</h2>
-<p>Hello! I'm Sandeep Rao, a passionate software developer with a knack for turning complex problems into elegant, efficient solutions. With 1 years of experience in front-end and backend, I’ve honed my skills in a variety of programming languages and frameworks, including java,python,react.js,django,mysql,postgresql.
-
-    My journey in software development began with a curiosity for how things work, and this curiosity has driven me to continuously learn and evolve in this ever-changing field. Whether it's developing a robust backend system, crafting a seamless user interface, or optimizing code for performance, I strive to build software that not only meets the requirements but also exceeds expectations.
-</p>
-</br>
-<div class="container text-center">
-    <div class="row">
-      <div class="col">
-        <a href="" class="btn">Latest Post</a>
-      </div>
-      <div class="col">
-        {% comment %} <h3><a href="{% url 'allpost-detail' %}">All Post</a></h3> {% endcomment %}
-        {% comment %} <a href="{% url 'allpost-detail' %}" class="btn">All Post</a>
-      </div>
-      
-    </div>
-  </div>
-  <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-{% for listing in post %}
-
-<div class="grid text-center">
-  <div class="g-col-4"></div>
-  <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{listing}}</h5>
-      <a href="{% url "post-description" listing %}" class="btn">Read More</a>
-    </div>
-  </div>
-</div>
-    {% endfor %}
-  </div>
-      
-  
-  <h3>About Us</h3>
-  <p>Welcome to SR Technolgies, where innovation meets expertise. We are a dedicated team of software developers, designers, and technology enthusiasts with a shared passion for crafting cutting-edge solutions that drive business success and deliver exceptional user experiences.
-
-    Our journey began in [Year Founded or Brief History], with the goal of transforming ideas into powerful software applications. Over the years, we've grown into a diverse team of professionals, each bringing unique skills and perspectives to the table. Our collective expertise spans [mention areas of specialization, e.g., full-stack development, mobile applications, cloud solutions, UX/UI design], allowing us to tackle projects of varying complexities with confidence and creativity.
-    
-    At SR Technologies, we believe in the power of collaboration and continuous learning. We work closely with our clients to understand their vision, challenges, and goals, ensuring that every solution we deliver is tailored to their specific needs. Our approach is rooted in [mention key principles, e.g., agile development, user-centered design, or innovative problem-solving], enabling us to stay agile and responsive in a fast-paced industry.
-    
-    We pride ourselves on our commitment to quality, transparency, and customer satisfaction. Whether we’re building a startup’s MVP, scaling an enterprise application, or creating a unique digital experience, we pour our expertise and passion into every line of code.
-    
-    Beyond our technical skills, we’re a team that values curiosity, creativity, and continuous growth. We’re always exploring new technologies, experimenting with fresh ideas, and pushing the boundaries of what’s possible in software development.
-    </p>
-
-
-{% endblock %}  {% endcomment %}
-{% comment %} {% extends "base.html" %} {% endcomment %}
+{% extends "base.html" %}
 {% load static %}
 {% block page_title %}Home Page{% endblock %}
-{% block css_file %} 
+
+{% block css_file %}
 <link rel="stylesheet" href="{% static 'userprofile/index.css' %}">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
 {% endblock %}
-{% block content %}
-<header class="bg-dark text-white text-center py-5 mb-4">
-  <div class="container">
-    <h1 class="fw-light">Welcome to My Portfolio</h1>
-  </div>
-</header>
 
-<div class="container">
+{% block content %}
+{% include "includes/header.html" %}
+
+<div class="container mt-5">
+  <!-- Introduction Section -->
   <section class="mb-5">
     <h2 class="text-center mb-4">Introduction</h2>
-    <p class="lead text-center">Hello! I'm <strong>Sandeep Rao</strong>, a passionate software developer with a knack for turning complex problems into elegant, efficient solutions. With 1 year of experience in front-end and backend development, I’ve honed my skills in various programming languages and frameworks, including Java, Python, React.js, Django, MySQL, and PostgreSQL.</p>
-    <p class="text-center">My journey in software development began with a curiosity for how things work, and this curiosity has driven me to continuously learn and evolve in this ever-changing field. Whether it's developing a robust backend system, crafting a seamless user interface, or optimizing code for performance, I strive to build software that not only meets the requirements but also exceeds expectations.</p>
+    <p class="lead text-center">
+      Hello! I'm <strong>Sandeep Rao</strong>, a passionate software developer with a knack for turning complex problems into elegant, efficient solutions. With 1 year of experience in front-end and backend development, I’ve honed my skills in various programming languages and frameworks, including Java, Python, React.js, Django, MySQL, and PostgreSQL.
+    </p>
+    <p class="text-center">
+      My journey in software development began with a curiosity for how things work, and this curiosity has driven me to continuously learn and evolve in this ever-changing field. Whether it's developing a robust backend system, crafting a seamless user interface, or optimizing code for performance, I strive to build software that not only meets the requirements but also exceeds expectations.
+    </p>
   </section>
 
-  <div class="text-center mb-5">
-    <a href="#" class="btn btn-primary btn-lg mx-2">Latest Post</a>
-    <a href="{% url 'allpost-detail' %}" class="btn btn-outline-secondary btn-lg mx-2">All Posts</a>
-  </div>
-
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  <!-- Posts Section -->
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
     {% for listing in post %}
     <div class="col">
       <div class="card h-100 shadow-sm">
-        <img src="{{listing.image.url}}" class="card-img-top" alt="...">
+        <img src="{{ listing.image.url }}" class="card-img-top" alt="{{ listing.title }}">
         <div class="card-body">
-          <h5 class="card-title">{{ listing }}</h5>
-          <h2>{{listing.image.url}}</h2>
+          <h5 class="card-title">{{ listing.title }}</h5>
           <a href="{% url 'post-description' listing.slug %}" class="btn btn-outline-primary">Read More</a>
         </div>
       </div>
@@ -98,21 +37,34 @@
     {% endfor %}
   </div>
 
+  <!-- About Us Section -->
   <section class="mt-5">
     <h3 class="text-center mb-4">About Us</h3>
-    <p class="text-center">Welcome to SR Technologies, where innovation meets expertise. We are a dedicated team of software developers, designers, and technology enthusiasts with a shared passion for crafting cutting-edge solutions that drive business success and deliver exceptional user experiences.</p>
-    <p class="text-center">Our journey began with the goal of transforming ideas into powerful software applications. Over the years, we've grown into a diverse team of professionals, each bringing unique skills and perspectives to the table.</p>
-    <p class="text-center">At SR Technologies, we believe in the power of collaboration and continuous learning. We work closely with our clients to understand their vision, challenges, and goals, ensuring that every solution we deliver is tailored to their specific needs.</p>
+    <p class="text-center">
+      Welcome to SR Technologies, where innovation meets expertise. We are a dedicated team of software developers, designers, and technology enthusiasts with a shared passion for crafting cutting-edge solutions that drive business success and deliver exceptional user experiences.
+    </p>
+    <p class="text-center">
+      Our journey began with the goal of transforming ideas into powerful software applications. Over the years, we've grown into a diverse team of professionals, each bringing unique skills and perspectives to the table.
+    </p>
+    <p class="text-center">
+      At SR Technologies, we believe in the power of collaboration and continuous learning. We work closely with our clients to understand their vision, challenges, and goals, ensuring that every solution we deliver is tailored to their specific needs.
+    </p>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section class="mb-5">
+    <h2 class="text-center mb-4">Contact Us</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form method="post" class="needs-validation" novalidate>
+          {% csrf_token %}
+          <div class="mb-3">
+            {{ form.as_p }}
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg w-100">Submit Feedback</button>
+        </form>
+      </div>
+    </div>
   </section>
 </div>
-<form action="index" method="POST" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{form}}
-
-  <button type="submit">submit</button>
-
-
-
-</form>
 {% endblock %}
-

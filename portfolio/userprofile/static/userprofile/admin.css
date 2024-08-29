@@ -1,0 +1,48 @@
+/* admin.css */
+
+/* Inherit styles from index.css or define specific admin styles */
+body {
+    background-color: #f8f9fa;
+    color: #343a40;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: 900px;
+}
+
+h2 {
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+form {
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-color: #38ada9;
+    border-color: #38ada9;
+    color: #ffffff;
+    padding: 12px 25px;
+    font-size: 1.15rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background-color: #079992;
+    transform: scale(1.05);
+}
+
+/* Additional form input styling */
+.needs-validation .form-control {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.needs-validation .form-control:focus {
+    border-color: #38ada9;
+    box-shadow: 0 0 5px rgba(56, 173, 169, 0.5);
+}
